@@ -1,0 +1,14 @@
+.square {
+  display: block;
+  position: relative;
+}
+
+.square.black,
+.square.dark {
+  background-color: #bbb;
+}
+
+.square.white,
+.square.light {
+  background-color: #eee;
+}
