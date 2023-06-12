@@ -1,11 +1,11 @@
 import { type PieceToken, PlayerColor } from './Piece';
 import Square from './Square';
-import { isArray } from './utils';
+import { isArray } from '../utils';
 
-import './Board.css';
+import './Board.scss';
 
 function Board({ perspective, tokens }: { perspective?: PlayerColor, tokens?: readonly (PieceToken | null | undefined)[] | null }) {
-  if ((isArray as (arg: any) => arg is readonly any[])(tokens)) {
+  if ((isArray as (arg: unknown) => arg is readonly unknown[])(tokens)) {
     let { length } = tokens;
     if (length < 64) {
       const newTokens = tokens.slice();

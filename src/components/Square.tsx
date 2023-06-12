@@ -1,5 +1,5 @@
 import Piece, { type PieceToken } from './Piece';
-import './Square.css';
+import './Square.scss';
 
 export type SquareFile = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h';
 export type SquareName = `${SquareFile}${SquareRank}`;

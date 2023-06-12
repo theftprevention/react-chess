@@ -1,19 +1,19 @@
-import blackBishopImage from './images/pieces/black-bishop.svg';
-import blackKingImage from './images/pieces/black-king.svg';
-import blackKnightImage from './images/pieces/black-knight.svg';
-import blackPawnImage from './images/pieces/black-pawn.svg';
-import blackQueenImage from './images/pieces/black-queen.svg';
-import blackRookImage from './images/pieces/black-rook.svg';
-import whiteBishopImage from './images/pieces/white-bishop.svg';
-import whiteKingImage from './images/pieces/white-king.svg';
-import whiteKnightImage from './images/pieces/white-knight.svg';
-import whitePawnImage from './images/pieces/white-pawn.svg';
-import whiteQueenImage from './images/pieces/white-queen.svg';
-import whiteRookImage from './images/pieces/white-rook.svg';
+import blackBishopImage from '../assets/black-bishop.svg';
+import blackKingImage from '../assets/black-king.svg';
+import blackKnightImage from '../assets/black-knight.svg';
+import blackPawnImage from '../assets/black-pawn.svg';
+import blackQueenImage from '../assets/black-queen.svg';
+import blackRookImage from '../assets/black-rook.svg';
+import whiteBishopImage from '../assets/white-bishop.svg';
+import whiteKingImage from '../assets/white-king.svg';
+import whiteKnightImage from '../assets/white-knight.svg';
+import whitePawnImage from '../assets/white-pawn.svg';
+import whiteQueenImage from '../assets/white-queen.svg';
+import whiteRookImage from '../assets/white-rook.svg';
 
-import { capitalize, freeze } from './utils';
+import { capitalize, freeze } from '../utils';
 
-import './Piece.css';
+import './Piece.scss';
 
 export type PieceToken = keyof typeof pieceDefinitionsByToken;
 
@@ -79,7 +79,7 @@ const pieceDefinitionsByToken = (function () {
         __proto__: null,
         [blackToken]: createPieceDefinition(name, blackToken, PlayerColor.BLACK, blackImage),
         [whiteToken]: createPieceDefinition(name, whiteToken, PlayerColor.WHITE, whiteImage),
-      }) as any as PieceDefinitions<Name, BlackToken, WhiteToken, BlackImage, WhiteImage>;
+      }) as unknown as PieceDefinitions<Name, BlackToken, WhiteToken, BlackImage, WhiteImage>;
     }
 
     return definePiece;
@@ -98,7 +98,7 @@ const pieceDefinitionsByToken = (function () {
   return pieces as Omit<typeof pieces, '__proto__'>;
 })();
 
-function Piece({ token }: { token: PieceToken }) {
+export default function Piece({ token }: { token: PieceToken }) {
   const { color, image, name } = pieceDefinitionsByToken[token];
   const classes = `${color} ${name} piece`;
   const description = `${capitalize(color)} ${name}`;
@@ -106,5 +106,3 @@ function Piece({ token }: { token: PieceToken }) {
     <img src={image} alt={description} className={classes} />
   );
 }
-
-export default Piece;

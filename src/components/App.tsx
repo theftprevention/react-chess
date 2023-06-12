@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Board from './Board';
 import { PlayerColor } from './Piece';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   const [perspective, setPerspective] = useState(PlayerColor.WHITE);

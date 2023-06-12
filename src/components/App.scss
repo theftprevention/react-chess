@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  height: 100vh;
+
+  & > .board {
+    width: 100vmin;
+    height: 100vmin;
+  }
+
+  &-test {
+    margin-left: 20px;
+  }
+}
